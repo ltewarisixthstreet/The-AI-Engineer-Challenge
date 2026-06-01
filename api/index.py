@@ -17,8 +17,6 @@ app.add_middleware(
     allow_headers=["*"]
 )
 
-client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
-
 class ChatRequest(BaseModel):
     message: str
 
@@ -31,6 +29,7 @@ def chat(request: ChatRequest):
     if not os.getenv("OPENAI_API_KEY"):
         raise HTTPException(status_code=500, detail="OPENAI_API_KEY not configured")
     
+    client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
     try:
         user_message = request.message
         response = client.chat.completions.create(
