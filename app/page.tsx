@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 
 type Message = { role: "user" | "assistant"; content: string };
 
-const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
+const API_BASE = "";
 
 export default function Home() {
   const [messages, setMessages] = useState<Message[]>([
@@ -71,7 +71,7 @@ export default function Home() {
           <p className="text-xs text-white/50">Powered by GPT via FastAPI</p>
         </div>
         <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-white/60">
-          {API_BASE.replace(/^https?:\/\//, "")}
+          Mental Coach AI
         </span>
       </header>
 
